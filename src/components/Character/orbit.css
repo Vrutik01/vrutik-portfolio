@@ -1,0 +1,115 @@
+.orbit-model {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --tiltX: 0deg;
+  --tiltY: 0deg;
+  perspective: 1200px;
+}
+
+.orbit-svg {
+  width: min(80vh, 900px);
+  height: min(80vh, 900px);
+  position: relative;
+  pointer-events: none;
+  z-index: 2;
+  transform: rotateX(var(--tiltX)) rotateY(var(--tiltY));
+  transition: transform 0.1s linear;
+  overflow: visible;
+}
+
+.orbit-ring circle {
+  fill: none;
+  stroke: var(--accentColor);
+  stroke-opacity: 0.18;
+  stroke-width: 1;
+}
+
+.orbit-ring-1 {
+  animation: spin 90s linear infinite;
+  transform-origin: 300px 300px;
+}
+.orbit-ring-2 {
+  animation: spin-reverse 60s linear infinite;
+  transform-origin: 300px 300px;
+}
+.orbit-ring-3 {
+  animation: spin 40s linear infinite;
+  transform-origin: 300px 300px;
+}
+
+.orbit-node line {
+  stroke: var(--accentColor);
+  stroke-opacity: 0.35;
+  stroke-width: 1;
+}
+
+.orbit-node circle {
+  fill: var(--accentColor);
+  filter: drop-shadow(0 0 6px var(--accentColor));
+}
+
+.orbit-node {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.orbit-node-0 {
+  animation-delay: 0s;
+}
+.orbit-node-1 {
+  animation-delay: 0.5s;
+}
+.orbit-node-2 {
+  animation-delay: 1s;
+}
+.orbit-node-3 {
+  animation-delay: 1.5s;
+}
+.orbit-node-4 {
+  animation-delay: 2s;
+}
+.orbit-node-5 {
+  animation-delay: 2.5s;
+}
+
+.orbit-core {
+  fill: var(--backgroundColor);
+  stroke: var(--accentColor);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 20px var(--accentColor));
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .orbit-svg {
+    width: min(60vh, 500px);
+    height: min(60vh, 500px);
+  }
+}

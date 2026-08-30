@@ -1,34 +1,13 @@
-# Personal Portfolio License (PPL) v1.0
+Copyright (c) 2026 Vrutik Parvadiya
 
-Copyright (c) 2026 Moncy Yohannan
+All content, copy, and original visual design in this repository
+(including the hero orbit graphic, color palette, and typography choices)
+are the property of Vrutik Parvadiya. All rights reserved.
 
-This project is made available publicly for learning and reference purposes only.
-
-## Permissions
-You may:
-- View and study the code
-- Use small portions for personal learning
-- Build your own projects inspired by this work
-
-## Restrictions
-You may NOT:
-- Copy, replicate, or clone the entire website, design, or experience
-- Use this project or its derivatives for commercial purposes
-- Re-upload, redistribute, or resell this project
-- Create tutorials, videos, or courses based on this exact project without permission
-- Use any original assets (including 3D models, avatar, or visuals)
-
-## Attribution
-If you use any part of this project, you must give clear credit to:
-“Moncy Yohannan” with a link to the original source.
-
-## Assets & 3D Content
-All 3D assets, including the avatar, models, textures, and visual elements are proprietary and NOT part of this license.
-
-They may not be copied, used, or redistributed under any circumstances without explicit permission.
-
-## Enforcement
-Unauthorized use may result in DMCA takedown requests or legal action.
-
-## Contact
-connect@moncy.dev / www.moncy.dev
+The initial project scaffolding (component/animation structure) was adapted
+from an open-source portfolio template by Moncy Yohannan, shared under his
+Personal Portfolio License (PPL) v1.0, which permits studying the code and
+building inspired projects with attribution, and prohibits cloning the
+entire site experience or commercial resale of the template itself. That
+license did not cover the original 3D avatar or other proprietary assets,
+which have been removed and replaced with original work in this project.
