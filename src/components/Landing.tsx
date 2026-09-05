@@ -1,11 +1,11 @@
-import { PropsWithChildren } from "react";
+import HeroVisual from "./HeroVisual";
 import "./styles/Landing.css";
 
-const Landing = ({ children }: PropsWithChildren) => {
+const Landing = () => {
   return (
-    <>
-      <div className="landing-section" id="landingDiv">
-        <div className="landing-container">
+    <div className="landing-section" id="landingDiv">
+      <div className="landing-container">
+        <div className="landing-text">
           <div className="landing-intro">
             <h2>Hello! I'm</h2>
             <h1>
@@ -25,10 +25,27 @@ const Landing = ({ children }: PropsWithChildren) => {
               <div className="landing-h2-info-1">Architect</div>
             </h2>
           </div>
+          <div className="landing-cta">
+            <a href="#work" className="landing-btn-primary" data-cursor="disable">
+              View My Work
+            </a>
+            <a
+              href="/VrutikParvadiyaResume.pdf"
+              target="_blank"
+              className="landing-btn-ghost"
+              data-cursor="disable"
+            >
+              Download Resume
+            </a>
+          </div>
         </div>
-        {children}
+        <HeroVisual />
       </div>
-    </>
+      <div className="landing-scroll-cue">
+        <span></span>
+        Scroll
+      </div>
+    </div>
   );
 };
 
