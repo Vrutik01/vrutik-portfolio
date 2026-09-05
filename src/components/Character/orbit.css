@@ -1,18 +1,20 @@
-.orbit-model {
+.character-model.orbit-model {
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
   --tiltX: 0deg;
   --tiltY: 0deg;
   perspective: 1200px;
 }
 
 .orbit-svg {
-  width: min(80vh, 900px);
-  height: min(80vh, 900px);
+  width: min(50vh, 480px);
+  height: min(50vh, 480px);
   position: relative;
   pointer-events: none;
   z-index: 2;
+  opacity: 0.85;
   transform: rotateX(var(--tiltX)) rotateY(var(--tiltY));
   transition: transform 0.1s linear;
   overflow: visible;
@@ -72,8 +74,12 @@
   animation-delay: 2.5s;
 }
 
-.orbit-core {
+.orbit-core-bg {
   fill: var(--backgroundColor);
+}
+
+.orbit-core-ring {
+  fill: none;
   stroke: var(--accentColor);
   stroke-width: 2;
   filter: drop-shadow(0 0 20px var(--accentColor));
@@ -109,7 +115,7 @@
 
 @media screen and (max-width: 1024px) {
   .orbit-svg {
-    width: min(60vh, 500px);
-    height: min(60vh, 500px);
+    width: min(40vh, 340px);
+    height: min(40vh, 340px);
   }
 }

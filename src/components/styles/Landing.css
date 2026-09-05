@@ -295,7 +295,7 @@ h2.landing-info-h2 {
   .character-model {
     height: 100vh;
     bottom: 0;
-    z-index: 11;
+    z-index: 1;
     position: fixed;
   }
   .character-model::after,
@@ -307,12 +307,13 @@ h2.landing-info-h2 {
     left: auto;
     right: 66%;
     transform: translate(0%, -50%);
+    z-index: 9;
   }
 
   .landing-info {
     bottom: auto;
     top: 51%;
-    z-index: inherit;
+    z-index: 9;
     text-align: left;
     transform: translate(0%, -50%);
     right: auto;

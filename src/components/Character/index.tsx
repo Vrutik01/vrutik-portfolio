@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLoading } from "../../context/LoadingProvider";
 import { setProgress } from "../Loading";
+import AvatarPortrait from "./AvatarPortrait";
 import "./orbit.css";
 
 // Original hero visual: an abstract "systems" orbit graphic representing
@@ -68,6 +69,11 @@ const CharacterModel = () => {
           viewBox="0 0 600 600"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <defs>
+            <clipPath id="avatarClip">
+              <circle cx="300" cy="300" r="92" />
+            </clipPath>
+          </defs>
           <g className="orbit-ring orbit-ring-1">
             <circle cx="300" cy="300" r="230" />
           </g>
@@ -89,7 +95,13 @@ const CharacterModel = () => {
               </g>
             );
           })}
-          <circle className="orbit-core" cx="300" cy="300" r="34" />
+          <circle className="orbit-core-bg" cx="300" cy="300" r="94" />
+          <g clipPath="url(#avatarClip)">
+            <g transform="translate(210,214.5) scale(0.45)">
+              <AvatarPortrait />
+            </g>
+          </g>
+          <circle className="orbit-core-ring" cx="300" cy="300" r="92" />
         </svg>
       </div>
     </div>
