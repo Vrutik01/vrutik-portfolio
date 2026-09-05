@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
 import {
   BallCollider,
@@ -177,7 +176,7 @@ const TechStack = () => {
         onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
         className="tech-canvas"
       >
-        <ambientLight intensity={1} />
+        <ambientLight intensity={1.4} />
         <spotLight
           position={[20, 20, 25]}
           penumbra={1}
@@ -186,7 +185,8 @@ const TechStack = () => {
           castShadow
           shadow-mapSize={[512, 512]}
         />
-        <directionalLight position={[0, 5, -4]} intensity={2} />
+        <directionalLight position={[0, 5, -4]} intensity={2.2} />
+        <directionalLight position={[-10, -5, 8]} intensity={0.8} />
         <Physics gravity={[0, 0, 0]}>
           <Pointer isActive={isActive} />
           {spheres.map((props, i) => (
@@ -198,11 +198,6 @@ const TechStack = () => {
             />
           ))}
         </Physics>
-        <Environment
-          preset="city"
-          environmentIntensity={0.5}
-          environmentRotation={[0, 4, 2]}
-        />
         <EffectComposer enableNormalPass={false}>
           <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
         </EffectComposer>
