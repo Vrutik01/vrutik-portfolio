@@ -49,7 +49,7 @@ const Work = () => {
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
-        <h2>
+        <h2 data-reveal>
           My <span>Work</span>
         </h2>
         <div className="work-flex">

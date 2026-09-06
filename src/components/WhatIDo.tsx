@@ -35,7 +35,7 @@ const WhatIDo = () => {
         </h2>
       </div>
       <div className="what-box">
-        <div className="what-box-in">
+        <div className="what-box-in" data-reveal>
           <div className="what-border2">
             <svg width="100%">
               <line

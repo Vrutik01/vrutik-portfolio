@@ -10,6 +10,7 @@ import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
+import setScrollReveal from "./utils/scrollReveal";
 
 const TechStack = lazy(() => import("./TechStack"));
 
@@ -24,9 +25,11 @@ const MainContainer = () => {
       setIsDesktopView(window.innerWidth > 1024);
     };
     resizeHandler();
+    const revealTimer = setTimeout(setScrollReveal, 50);
     window.addEventListener("resize", resizeHandler);
     return () => {
       window.removeEventListener("resize", resizeHandler);
+      clearTimeout(revealTimer);
     };
   }, [isDesktopView]);
 

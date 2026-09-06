@@ -1,9 +1,13 @@
+import AboutVisual from "./AboutVisual";
 import "./styles/About.css";
 
 const About = () => {
   return (
     <div className="about-section" id="about">
-      <div className="about-me">
+      <div className="about-visual-col" data-reveal data-reveal-from="left">
+        <AboutVisual />
+      </div>
+      <div className="about-me" data-reveal>
         <h3 className="title">About Me</h3>
         <p className="para">
           I'm a Module Lead with 5+ years of experience architecting and

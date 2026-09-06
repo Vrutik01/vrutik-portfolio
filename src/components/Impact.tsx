@@ -12,7 +12,7 @@ const stats = [
 const Impact = () => {
   return (
     <div className="impact-section section-container" id="impact">
-      <div className="impact-grid">
+      <div className="impact-grid" data-reveal>
         {stats.map((stat, index) => (
           <div className="impact-card" key={index}>
             <h3 className="title">{stat.value}</h3>
