@@ -58,26 +58,31 @@ const Work = () => {
               name: "Enterprise LMS Platform",
               category: "Backend Architecture",
               tools: "C#, .NET Core, Angular, Azure Service Bus, Cosmos DB",
+              image: "/images/work/lms-platform.webp",
             },
             {
               name: "Enterprise CMS Platform",
               category: "Full-Stack Development",
               tools: "Node.js, TypeScript, Express.js, MongoDB, Redis",
+              image: "/images/work/cms-platform.webp",
             },
             {
               name: "Space & Room Reservation",
               category: "Serverless Platform",
               tools: "AWS Lambda, API Gateway, S3, Express.js, TypeScript",
+              image: "/images/work/reservation-platform.webp",
             },
             {
               name: "Legacy System Modernization",
               category: "System Design",
               tools: "Azure Service Bus, Message-Driven Architecture",
+              image: "/images/work/system-modernization.webp",
             },
             {
               name: "Sewage Cleaning Robot",
               category: "IoT & Robotics",
               tools: "Raspberry Pi, Bootstrap, HTML, CSS",
+              image: "/images/work/sewage-robot.webp",
             },
           ].map((project, index) => (
             <div className="work-box" key={index}>
@@ -93,7 +98,7 @@ const Work = () => {
                 <h4>Tools and features</h4>
                 <p>{project.tools}</p>
               </div>
-              <WorkImage image="/images/placeholder.webp" alt="" />
+              <WorkImage image={project.image} alt={project.name} />
             </div>
           ))}
         </div>

@@ -2,13 +2,7 @@ import * as THREE from "three";
 import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
-import {
-  BallCollider,
-  Physics,
-  RigidBody,
-  CylinderCollider,
-  RapierRigidBody,
-} from "@react-three/rapier";
+import { BallCollider, Physics, RigidBody, RapierRigidBody } from "@react-three/rapier";
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
@@ -27,13 +21,23 @@ const imageUrls = [
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
-const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
+// Flat "coin" tokens instead of fully-wrapped spheres: the logo sits on
+// two camera-facing circular faces instead of being smeared around a
+// globe, so each icon stays instantly recognizable.
+const coinGeometry = new THREE.CylinderGeometry(1, 1, 0.34, 48);
 
-const spheres = [...Array(30)].map(() => ({
-  scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
+const sideMaterial = new THREE.MeshPhysicalMaterial({
+  color: "#12181c",
+  metalness: 0.7,
+  roughness: 0.45,
+  clearcoat: 0.3,
+});
+
+const coins = [...Array(24)].map(() => ({
+  scale: [0.75, 1, 0.85, 1, 1][Math.floor(Math.random() * 5)],
 }));
 
-type SphereProps = {
+type CoinProps = {
   vec?: THREE.Vector3;
   scale: number;
   r?: typeof THREE.MathUtils.randFloatSpread;
@@ -41,13 +45,13 @@ type SphereProps = {
   isActive: boolean;
 };
 
-function SphereGeo({
+function CoinGeo({
   vec = new THREE.Vector3(),
   scale,
   r = THREE.MathUtils.randFloatSpread,
   material,
   isActive,
-}: SphereProps) {
+}: CoinProps) {
   const api = useRef<RapierRigidBody | null>(null);
 
   useFrame((_state, delta) => {
@@ -75,20 +79,18 @@ function SphereGeo({
       position={[r(20), r(20) - 25, r(20) - 10]}
       ref={api}
       colliders={false}
+      // Lock rotation so the coin's logo face always stays readable
+      // instead of tumbling edge-on to the camera.
+      enabledRotations={[false, false, false]}
     >
       <BallCollider args={[scale]} />
-      <CylinderCollider
-        rotation={[Math.PI / 2, 0, 0]}
-        position={[0, 0, 1.2 * scale]}
-        args={[0.15 * scale, 0.275 * scale]}
-      />
       <mesh
         castShadow
         receiveShadow
         scale={scale}
-        geometry={sphereGeometry}
-        material={material}
-        rotation={[0.3, 1, 1]}
+        geometry={coinGeometry}
+        material={[sideMaterial, material, material]}
+        rotation={[Math.PI / 2, 0, 0]}
       />
     </RigidBody>
   );
@@ -159,12 +161,13 @@ const TechStack = () => {
       (texture) =>
         new THREE.MeshPhysicalMaterial({
           map: texture,
+          transparent: true,
           emissive: "#ffffff",
           emissiveMap: texture,
-          emissiveIntensity: 0.3,
-          metalness: 0.5,
-          roughness: 1,
-          clearcoat: 0.1,
+          emissiveIntensity: 0.35,
+          metalness: 0.3,
+          roughness: 0.9,
+          clearcoat: 0.15,
         })
     );
   }, []);
@@ -193,11 +196,11 @@ const TechStack = () => {
         <directionalLight position={[-10, -5, 8]} intensity={0.8} />
         <Physics gravity={[0, 0, 0]}>
           <Pointer isActive={isActive} />
-          {spheres.map((props, i) => (
-            <SphereGeo
+          {coins.map((props, i) => (
+            <CoinGeo
               key={i}
               {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
+              material={materials[i % materials.length]}
               isActive={isActive}
             />
           ))}
