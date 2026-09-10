@@ -40,7 +40,7 @@ const MainContainer = () => {
       <SocialIcons />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <div className="container-main">
+          <main className="container-main" id="main-content">
             <Landing />
             <About />
             <Impact />
@@ -53,7 +53,7 @@ const MainContainer = () => {
               </Suspense>
             )}
             <Contact />
-          </div>
+          </main>
         </div>
       </div>
     </div>

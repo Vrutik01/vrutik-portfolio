@@ -61,6 +61,7 @@ const WhatIDo = () => {
           <div
             className="what-content what-noTouch"
             ref={(el) => setRef(el, 0)}
+            tabIndex={0}
           >
             <div className="what-border1">
               <svg height="100%">
@@ -113,6 +114,7 @@ const WhatIDo = () => {
           <div
             className="what-content what-noTouch"
             ref={(el) => setRef(el, 1)}
+            tabIndex={0}
           >
             <div className="what-border1">
               <svg height="100%">

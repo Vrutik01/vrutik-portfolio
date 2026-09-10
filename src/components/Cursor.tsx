@@ -48,7 +48,7 @@ const Cursor = () => {
     });
   }, []);
 
-  return <div className="cursor-main" ref={cursorRef}></div>;
+  return <div className="cursor-main" ref={cursorRef} aria-hidden="true"></div>;
 };
 
 export default Cursor;

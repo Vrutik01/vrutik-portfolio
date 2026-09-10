@@ -14,6 +14,9 @@ const HeroVisual = () => {
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
       return;
     }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
 
     let targetX = 0;
     let targetY = 0;
@@ -54,7 +57,7 @@ const HeroVisual = () => {
   }, []);
 
   return (
-    <div className="hero-visual">
+    <div className="hero-visual" aria-hidden="true">
       <div className="hero-visual-glow" aria-hidden="true"></div>
 
       <div className="hero-badge-row">

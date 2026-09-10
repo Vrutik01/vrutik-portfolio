@@ -41,10 +41,6 @@ const Landing = () => {
         </div>
         <HeroVisual />
       </div>
-      <div className="landing-scroll-cue">
-        <span></span>
-        Scroll
-      </div>
     </div>
   );
 };

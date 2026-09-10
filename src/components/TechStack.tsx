@@ -20,6 +20,20 @@ const imageUrls = [
   "/images/techstack/react.webp",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
+const techNames = [
+  "C#",
+  ".NET Core",
+  "Angular",
+  "TypeScript",
+  "Node.js",
+  "Azure",
+  "AWS",
+  "Docker",
+  "PostgreSQL",
+  "MongoDB",
+  "Redis",
+  "React",
+];
 
 // Flat "coin" tokens instead of fully-wrapped spheres: the logo sits on
 // two camera-facing circular faces instead of being smeared around a
@@ -175,6 +189,11 @@ const TechStack = () => {
   return (
     <div className="techstack">
       <h2> My Techstack</h2>
+      <ul className="sr-only">
+        {techNames.map((name) => (
+          <li key={name}>{name}</li>
+        ))}
+      </ul>
 
       <Canvas
         shadows
@@ -182,6 +201,7 @@ const TechStack = () => {
         camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
         onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
         className="tech-canvas"
+        aria-hidden="true"
       >
         <ambientLight intensity={1.4} />
         <spotLight

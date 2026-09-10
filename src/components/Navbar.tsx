@@ -41,8 +41,11 @@ const Navbar = () => {
   }, []);
   return (
     <>
-      <div className="header">
-        <a href="/#" className="navbar-title" data-cursor="disable">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+      <nav className="header" aria-label="Primary">
+        <a href="/#" className="navbar-title" data-cursor="disable" aria-label="Vrutik Parvadiya, home">
           VP
         </a>
         <a
@@ -69,11 +72,11 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
-      </div>
+      </nav>
 
-      <div className="landing-circle1"></div>
-      <div className="landing-circle2"></div>
-      <div className="nav-fade"></div>
+      <div className="landing-circle1" aria-hidden="true"></div>
+      <div className="landing-circle2" aria-hidden="true"></div>
+      <div className="nav-fade" aria-hidden="true"></div>
     </>
   );
 };

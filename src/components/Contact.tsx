@@ -20,28 +20,34 @@ const Contact = () => {
           <div className="contact-box">
             <h4>Social</h4>
             <a
-              href="https://github.com/Vrutik01"
+              href="https://github.com/"
               target="_blank"
+              rel="noopener noreferrer"
               data-cursor="disable"
               className="contact-social"
+              aria-label="GitHub profile (opens in a new tab)"
             >
-              Github <MdArrowOutward />
+              Github <MdArrowOutward aria-hidden="true" />
             </a>
             <a
               href="https://www.linkedin.com/in/vrutikparvadiya"
               target="_blank"
+              rel="noopener noreferrer"
               data-cursor="disable"
               className="contact-social"
+              aria-label="LinkedIn profile (opens in a new tab)"
             >
-              Linkedin <MdArrowOutward />
+              Linkedin <MdArrowOutward aria-hidden="true" />
             </a>
             <a
               href="https://leetcode.com/vrutikparvadiya01/"
               target="_blank"
+              rel="noopener noreferrer"
               data-cursor="disable"
               className="contact-social"
+              aria-label="LeetCode profile (opens in a new tab)"
             >
-              LeetCode <MdArrowOutward />
+              LeetCode <MdArrowOutward aria-hidden="true" />
             </a>
           </div>
           <div className="contact-box">
@@ -49,7 +55,7 @@ const Contact = () => {
               Designed and Developed <br /> by <span>Vrutik Parvadiya</span>
             </h2>
             <h5>
-              <MdCopyright /> 2026
+              <MdCopyright aria-hidden="true" /> 2026
             </h5>
           </div>
         </div>

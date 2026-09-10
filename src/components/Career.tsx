@@ -44,6 +44,16 @@ const Career = () => {
 
   useGSAP(
     () => {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      if (prefersReducedMotion) {
+        gsap.set(".career-timeline", { maxHeight: "100%", opacity: 1 });
+        gsap.set(".career-info-box", { opacity: 1, y: 0 });
+        return;
+      }
+
       // The connecting line grows in sync with scroll position, and
       // reverses smoothly when scrolling back up.
       gsap.fromTo(
@@ -62,8 +72,9 @@ const Career = () => {
         }
       );
 
-      // Each role card cascades in as it enters the viewport, and
-      // reverses out again when scrolling back up past it.
+      // Each role card cascades in once as it enters the viewport.
+      // Plays once (not on the way back up) to avoid flicker from
+      // small mobile scroll bounces.
       const boxes = gsap.utils.toArray<HTMLElement>(".career-info-box");
       boxes.forEach((box, index) => {
         gsap.fromTo(
@@ -78,7 +89,8 @@ const Career = () => {
             scrollTrigger: {
               trigger: box,
               start: "top 88%",
-              toggleActions: "play reverse play reverse",
+              toggleActions: "play none none none",
+              once: true,
             },
           }
         );

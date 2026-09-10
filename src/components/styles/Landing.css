@@ -210,41 +210,6 @@ h2.landing-info-h2 {
   transform: translateY(-3px);
 }
 
-.landing-scroll-cue {
-  position: relative;
-  z-index: 9;
-  margin: 40px auto 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(228, 238, 242, 0.45);
-  opacity: 0;
-  animation: hero-fade-up 0.8s ease forwards;
-  animation-delay: 1.9s;
-}
-.landing-scroll-cue span {
-  width: 1px;
-  height: 30px;
-  background: linear-gradient(
-    to bottom,
-    var(--accentColor),
-    transparent
-  );
-  animation: scroll-cue-pulse 1.8s ease-in-out infinite;
-}
-@keyframes scroll-cue-pulse {
-  0%,
-  100% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 1;
-  }
-}
 @keyframes hero-fade-up {
   from {
     opacity: 0;
@@ -320,13 +285,9 @@ h2.landing-info-h2 {
   h2.landing-info-h2 {
     justify-content: flex-start;
   }
-  .landing-cta,
-  .landing-scroll-cue {
+  .landing-cta {
     justify-content: flex-start;
     margin-left: 0;
-  }
-  .landing-scroll-cue {
-    align-items: flex-start;
   }
 }
 @media screen and (min-width: 1600px) {
@@ -346,5 +307,52 @@ h2.landing-info-h2 {
   }
   h2.landing-info-h2 {
     font-size: 62px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .landing-section {
+    padding: 90px 0 20px;
+  }
+  .landing-intro h2 {
+    font-size: 17px;
+  }
+  .landing-intro h1 {
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .landing-info {
+    margin-top: 12px;
+  }
+  .landing-info h3 {
+    font-size: 17px;
+  }
+  .landing-info h2 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  h2.landing-info-h2 {
+    font-size: 32px;
+  }
+  .landing-cta {
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .landing-btn-primary,
+  .landing-btn-ghost {
+    padding: 11px 20px;
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .landing-intro h1 {
+    font-size: 26px;
+    line-height: 27px;
+  }
+  .landing-info h2 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  h2.landing-info-h2 {
+    font-size: 27px;
   }
 }

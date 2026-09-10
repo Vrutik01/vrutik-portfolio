@@ -23,24 +23,43 @@
   max-width: calc(100% - 15px);
 }
 .about-me h3 {
-  font-size: 25px;
+  font-size: 18px;
   text-transform: uppercase;
-  letter-spacing: 7px;
+  letter-spacing: 4px;
   font-weight: 400;
   color: var(--accentColor);
 }
 
 .about-me p {
-  font-size: 33px;
+  font-size: 19px;
   font-weight: 600;
-  line-height: 36px;
-  letter-spacing: 1px;
+  line-height: 27px;
+  letter-spacing: 0.3px;
+}
+
+@media only screen and (min-width: 500px) {
+  .about-me h3 {
+    font-size: 21px;
+    letter-spacing: 5px;
+  }
+  .about-me p {
+    font-size: 23px;
+    line-height: 30px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   .about-me {
     width: 500px;
     max-width: calc(100% - 70px);
+  }
+  .about-me h3 {
+    font-size: 25px;
+    letter-spacing: 7px;
+  }
+  .about-me p {
+    font-size: 28px;
+    line-height: 32px;
   }
   .about-section {
     opacity: 1;

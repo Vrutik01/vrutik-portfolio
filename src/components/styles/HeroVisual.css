@@ -257,6 +257,17 @@
     padding: 16px;
   }
 }
+@media screen and (max-width: 420px) {
+  .hero-terminal-body {
+    font-size: 10.5px;
+    padding: 14px;
+    line-height: 1.7;
+  }
+  .hero-badge {
+    font-size: 10.5px;
+    padding: 6px 11px;
+  }
+}
 
 @media screen and (min-width: 1025px) {
   .hero-visual {

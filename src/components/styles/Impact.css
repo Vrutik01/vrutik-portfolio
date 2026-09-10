@@ -90,3 +90,19 @@
     font-size: 13.5px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .impact-grid {
+    gap: 10px;
+  }
+  .impact-card {
+    padding: 16px 14px;
+  }
+  .impact-card h3 {
+    font-size: 26px;
+  }
+  .impact-card p {
+    font-size: 11.5px;
+    margin-top: 6px;
+  }
+}

@@ -48,7 +48,7 @@ const Loading = ({ percent }: { percent: number }) => {
         <a href="/#" className="loader-title" data-cursor="disable">
           VP
         </a>
-        <div className={`loaderGame ${clicked && "loader-out"}`}>
+        <div className={`loaderGame ${clicked && "loader-out"}`} aria-hidden="true">
           <div className="loaderGame-container">
             <div className="loaderGame-in">
               {[...Array(27)].map((_, index) => (
@@ -60,7 +60,7 @@ const Loading = ({ percent }: { percent: number }) => {
         </div>
       </div>
       <div className="loading-screen">
-        <div className="loading-marquee">
+        <div className="loading-marquee" aria-hidden="true">
           <Marquee>
             <span> Module Lead</span> <span>Backend Architect</span>
             <span> Module Lead</span> <span>Backend Architect</span>
@@ -70,15 +70,19 @@ const Loading = ({ percent }: { percent: number }) => {
           className={`loading-wrap ${clicked && "loading-clicked"}`}
           onMouseMove={(e) => handleMouseMove(e)}
         >
-          <div className="loading-hover"></div>
+          <div className="loading-hover" aria-hidden="true"></div>
           <div className={`loading-button ${loaded && "loading-complete"}`}>
             <div className="loading-container">
               <div className="loading-content">
-                <div className="loading-content-in">
+                <div
+                  className="loading-content-in"
+                  role="status"
+                  aria-live="polite"
+                >
                   Loading <span>{percent}%</span>
                 </div>
               </div>
-              <div className="loading-box"></div>
+              <div className="loading-box" aria-hidden="true"></div>
             </div>
             <div className="loading-content2">
               <span>Welcome</span>

@@ -56,25 +56,46 @@ const SocialIcons = () => {
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
-          <a href="https://github.com/Vrutik01" target="_blank">
-            <FaGithub />
+          <a
+            href="https://github.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile (opens in a new tab)"
+          >
+            <FaGithub aria-hidden="true" />
           </a>
         </span>
         <span>
-          <a href="https://www.linkedin.com/in/vrutikparvadiya" target="_blank">
-            <FaLinkedinIn />
+          <a
+            href="https://www.linkedin.com/in/vrutikparvadiya"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile (opens in a new tab)"
+          >
+            <FaLinkedinIn aria-hidden="true" />
           </a>
         </span>
         <span>
-          <a href="https://leetcode.com/vrutikparvadiya01/" target="_blank">
-            <SiLeetcode />
+          <a
+            href="https://leetcode.com/vrutikparvadiya01/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LeetCode profile (opens in a new tab)"
+          >
+            <SiLeetcode aria-hidden="true" />
           </a>
         </span>
       </div>
-      <a className="resume-button" href="/VrutikParvadiyaResume.pdf" target="_blank">
+      <a
+        className="resume-button"
+        href="/VrutikParvadiyaResume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Download resume PDF (opens in a new tab)"
+      >
         <HoverLinks text="RESUME" />
         <span>
-          <TbNotes />
+          <TbNotes aria-hidden="true" />
         </span>
       </a>
     </div>

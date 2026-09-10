@@ -50,7 +50,7 @@ const AboutVisual = () => {
         ))}
       </div>
 
-      <div className="about-marquee">
+      <div className="about-marquee" aria-hidden="true">
         <Marquee speed={32} gradient={false}>
           {marqueeTags.map((tag, index) => (
             <span className="about-marquee-tag" key={index}>
