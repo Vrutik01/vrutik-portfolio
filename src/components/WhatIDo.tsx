@@ -107,6 +107,8 @@ const WhatIDo = () => {
                 <div className="what-tags">MongoDB</div>
                 <div className="what-tags">PostgreSQL</div>
                 <div className="what-tags">MySql</div>
+                <div className="what-tags">XUnit</div>
+                <div className="what-tags">Swagger</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -148,6 +150,8 @@ const WhatIDo = () => {
                 <div className="what-tags">Microservices</div>
                 <div className="what-tags">CI/CD</div>
                 <div className="what-tags">System Design</div>
+                <div className="what-tags">OAuth 2.0 / OIDC</div>
+                <div className="what-tags">Kafka/RabbitMQ</div>
               </div>
               <div className="what-arrow"></div>
             </div>

@@ -57,7 +57,7 @@ const SocialIcons = () => {
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
           <a
-            href="https://github.com/"
+            href="https://github.com/Vrutik01"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile (opens in a new tab)"

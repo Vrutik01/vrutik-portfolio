@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import About from "./About";
 import Career from "./Career";
 import Contact from "./Contact";
@@ -15,14 +15,9 @@ import setScrollReveal from "./utils/scrollReveal";
 const TechStack = lazy(() => import("./TechStack"));
 
 const MainContainer = () => {
-  const [isDesktopView, setIsDesktopView] = useState<boolean>(
-    window.innerWidth > 1024
-  );
-
   useEffect(() => {
     const resizeHandler = () => {
       setSplitText();
-      setIsDesktopView(window.innerWidth > 1024);
     };
     resizeHandler();
     const revealTimer = setTimeout(setScrollReveal, 50);
@@ -31,7 +26,7 @@ const MainContainer = () => {
       window.removeEventListener("resize", resizeHandler);
       clearTimeout(revealTimer);
     };
-  }, [isDesktopView]);
+  }, []);
 
   return (
     <div className="container-main">
@@ -47,11 +42,9 @@ const MainContainer = () => {
             <WhatIDo />
             <Career />
             <Work />
-            {isDesktopView && (
-              <Suspense fallback={<div>Loading....</div>}>
-                <TechStack />
-              </Suspense>
-            )}
+            <Suspense fallback={<div>Loading....</div>}>
+              <TechStack />
+            </Suspense>
             <Contact />
           </main>
         </div>

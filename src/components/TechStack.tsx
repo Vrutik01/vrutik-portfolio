@@ -47,7 +47,13 @@ const sideMaterial = new THREE.MeshPhysicalMaterial({
   clearcoat: 0.3,
 });
 
-const coins = [...Array(24)].map(() => ({
+// Mobile GPUs handle far fewer physics bodies and post-processing
+// passes comfortably, so the scene scales itself down below the
+// tablet breakpoint rather than skipping rendering entirely.
+const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+const coinCount = isMobile ? 12 : 24;
+
+const coins = [...Array(coinCount)].map(() => ({
   scale: [0.75, 1, 0.85, 1, 1][Math.floor(Math.random() * 5)],
 }));
 
@@ -196,7 +202,8 @@ const TechStack = () => {
       </ul>
 
       <Canvas
-        shadows
+        shadows={!isMobile}
+        dpr={isMobile ? [1, 1.5] : [1, 2]}
         gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
         camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
         onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
@@ -209,7 +216,7 @@ const TechStack = () => {
           penumbra={1}
           angle={0.2}
           color="white"
-          castShadow
+          castShadow={!isMobile}
           shadow-mapSize={[512, 512]}
         />
         <directionalLight position={[0, 5, -4]} intensity={2.2} />
@@ -225,9 +232,11 @@ const TechStack = () => {
             />
           ))}
         </Physics>
-        <EffectComposer enableNormalPass={false}>
-          <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
-        </EffectComposer>
+        {!isMobile && (
+          <EffectComposer enableNormalPass={false}>
+            <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
+          </EffectComposer>
+        )}
       </Canvas>
     </div>
   );

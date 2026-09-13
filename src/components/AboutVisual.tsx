@@ -3,16 +3,16 @@ import "./styles/AboutVisual.css";
 
 const focusAreas = [
   {
+    label: "Technical Leadership",
+    detail: "Owning module delivery, code reviews, and mentoring 12+ engineers",
+  },
+  {
     label: "System Modernization",
     detail: "Refactoring monolithic flows into async, message-driven services",
   },
   {
-    label: "Cloud Native Delivery",
-    detail: "Operating LMS/CMS workloads across AWS and Azure",
-  },
-  {
-    label: "Team Leadership",
-    detail: "Mentoring 12+ engineers through reviews & design discussions",
+    label: "Cloud Native Development",
+    detail: "Building and operating systems across AWS and Azure",
   },
   {
     label: "Performance Engineering",
@@ -32,6 +32,8 @@ const marqueeTags = [
   "PostgreSQL",
   "MongoDB",
   "Redis",
+  "Kafka/RabbitMQ",
+  "OAuth 2.0",
   "System Design",
 ];
 
